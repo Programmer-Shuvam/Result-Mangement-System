@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Data Entry</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="https://4.bp.blogspot.com/-cKfxHZBZKNo/WIQaN1S0CwI/AAAAAAAAFAc/8CVg_TVmG6ES8uVepCpzzYmwKyxvmyR7gCLcB/s1600/kvs-logo-with-bg.png"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="/thank_u/" method="POST"  enctype="multipart/form-data" style="padding-top:20px;">
+                {% csrf_token %}
+				<span class="contact100-form-title">
+					Teacher's Entry
+                </span>
+				<div class="wrap-input100 validate-input" data-validate = "Class is required">
+					<label class="label-input100" for="email">Class</label>
+					<input id="email" class="input100" type="text" name="class" placeholder="Enter Class">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input">
+					<div class="label-input100">SECTION</div>
+					<div>
+						<select class="js-select2" name="sec">
+							<option>A</option>
+							<option>B</option>
+							<option>C</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+					<span class="focus-input100"></span>
+                </div>
+				<div class="wrap-input100 validate-input" data-validate = "Names Required">
+					<label class="label-input100" for="email">Names Of Students</label>
+					<textarea name="names" id="" class="input100" cols="30" rows="2"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "DOB of All Students are required">
+					<label class="label-input100" for="textarea">DOB of ALL Students</label>
+					<textarea name="DOB" id="" class="input100" cols="30" rows="2"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Admission Numbers Are Required Of all Students">
+					<label class="label-input100" for="textarea">Admission number</label>
+					<textarea name="adm" id="" class="input100" cols="30" rows="2"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+                
+                <input type="file" id="excel" name="excel" accept="excel/">
+                
+                <div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Submit
+					</button>
+				</div>
+			</form>
+			
+			<div class="contact100-more flex-col-c-m" style="background-image: url('https://i.pinimg.com/originals/05/0f/43/050f43007dac85fff3ce51cb06c886d9.jpg');">
+			</div>
+		</div>
+	</div>
+
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<script>
+	$(".js-select2").each(function(){
+		$(this).select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $(this).next('.dropDownSelect2')
+		});
+	})
+	$(".js-select2").each(function(){
+		$(this).on('select2:open', function (e){
+			$(this).parent().next().addClass('eff-focus-selection');
+		});
+	});
+	$(".js-select2").each(function(){
+		$(this).on('select2:close', function (e){
+			$(this).parent().next().removeClass('eff-focus-selection');
+		});
+	});
+</script>
+<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+	  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+</html>

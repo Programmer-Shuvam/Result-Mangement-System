@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{data.name}}'s REPORT CARD</title>
+    <link rel="icon" type="image/png" href="https://4.bp.blogspot.com/-cKfxHZBZKNo/WIQaN1S0CwI/AAAAAAAAFAc/8CVg_TVmG6ES8uVepCpzzYmwKyxvmyR7gCLcB/s1600/kvs-logo-with-bg.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form>
+        <div class="row">
+          <div class="col">
+            <div class="card-body jumbotron text-center">
+                <h5 class="card-title">{{data.name}}'s REPORT CARD</h5>
+                <a href="https://kv6registration.pythonanywhere.com/media/{{data.pdf}}" download="{{data.name}} report card 2019-20" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Download<br><small>as PDF</small></a>
+            </div>
+            <embed src="https://kv6registration.pythonanywhere.com/media/{{data.pdf}}" width="100%" height="200%" type="application/pdf">
+          </div>
+        </div>
+    </form>
+</body>
+</html>

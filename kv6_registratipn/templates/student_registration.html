@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Registration</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="/submit/" method="POST">
+			    {% csrf_token %}
+				<span class="contact100-form-title">
+					Student's Registration Form
+				</span>
+				<div class="wrap-input100 validate-input" data-validate = "Name is required">
+					<label class="label-input100" for="email">Name</label>
+					<input id="email" class="input100" type="text" name="name" placeholder="Enter your Name">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Roll No. is required: e.g. 30">
+					<label class="label-input100" for="email">Roll No.</label>
+					<input id="email" class="input100" type="text" name="roll" placeholder="Enter your Roll No.">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Admission No. is required: e.g. 30">
+					<label class="label-input100" for="email">Admission No.</label>
+					<input id="email" class="input100" type="text" name="admission" placeholder="Enter your Admission No.">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<div class="label-input100">CLASS</div>
+					<div>
+						<select class="js-select2" name="class">
+							<option value="None" disabled selected hidden>Choose A Class</option>
+							<option>01</option>
+							<option>02</option>
+							<option>03</option>
+							<option>04</option>
+							<option>05</option>
+							<option>06</option>
+							<option>07</option>
+							<option>08</option>
+							<option>09</option>
+							<option>10</option>
+							<option>11</option>
+							<option>12</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<div class="label-input100">SECTION</div>
+					<div>
+						<select class="js-select2" name="sec">
+							<option>A</option>
+							<option>B</option>
+							<option>C</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Date of Birth is required: e.g. 30-09-2005">
+					<label class="label-input100">Date OF Birth :</label>
+					<input type="date" class="input100" id="birthday" name="dob">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Submit
+					</button>
+				</div>
+			</form>
+
+			<div class="contact100-more flex-col-c-m" style="background-image: url('https://www.deccanherald.com/sites/dh/files/article_images/2019/03/03/file74axlmkmpf91m7xg8oi8-1551555387.jpg');">
+			</div>
+		</div>
+	</div>
+
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<script>
+	$(".js-select2").each(function(){
+		$(this).select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $(this).next('.dropDownSelect2')
+		});
+	})
+	$(".js-select2").each(function(){
+		$(this).on('select2:open', function (e){
+			$(this).parent().next().addClass('eff-focus-selection');
+		});
+	});
+	$(".js-select2").each(function(){
+		$(this).on('select2:close', function (e){
+			$(this).parent().next().removeClass('eff-focus-selection');
+		});
+	});
+</script>
+<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+	  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+</html>

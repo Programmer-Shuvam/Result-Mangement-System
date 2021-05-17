@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container jumbotron text-center">
+        <h1 class="display-3">Thank You!</h1>
+        <p class="lead"><strong>Your Data has been Uploaded.</strong></p>
+        <p>
+          Having trouble? <a href="tel:06742352157">Contact Us</a>
+        </p>
+        <p>
+          <a href="mailto:kvno6bbsr@gmail.com">Mail Us</a>
+        </p>
+        <p class="lead">
+          <a class="btn btn-primary btn-sm" role="button" href='/selectionpage/'>Continue to Home Page</a>
+        </p>
+    </div>
+    {% if boo %}
+
+    <br>
+    <h2>
+        Faulty Data
+    </h2>
+           <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Names</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for naam in fault %}
+
+                  <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{naam}}</td>
+                  </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    <!-- <form action="">
+        <form action="/upload/">
+            {% csrf_token %}
+            <div class="form-group validate-input" data-validate = "Name is required">
+                <input type="text" class="form-control" id="email" placeholder="Enter Name" name="name">
+            </div>
+            <div class="form-group validate-input" data-validate = "Password is required">
+                <input type="password" class="form-control" id="email" placeholder="Enter password" name="pswd">
+            </div>
+            <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Login</button>
+        </form>
+    </form> -->
+    <style>
+        .jumbotron{margin-top: 8em;}
+    </style>
+</body>
+<!-- <script>
+    $( "button" ).click(function() {
+            var txt;
+            if (confirm("Press a button!")) {
+                txt = "You pressed OK!";
+                }
+            else {
+                txt = "You pressed Cancel!";
+                    }
+            document.getElementById("demo").innerHTML = txt;
+            })
+;
+</script> -->
+</html>
